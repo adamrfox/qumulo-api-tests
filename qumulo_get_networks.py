@@ -65,7 +65,7 @@ if __name__ == "__main__":
             auth_headers = {'Content-type': 'application/json', 'Authorization': 'Bearer ' + token}
         dprint("TOKEN:" + str(auth_headers))
         net_data = requests.get('https://' + qumulo + '/v2/network/interfaces/1/status/', headers=auth_headers,verify=False, timeout=timeout)
-        print(net_data.content)
+        dprint(net_data.content)
         net_info = json.loads(net_data.content.decode('utf-8'))
         for node in net_info:
             if node['interface_details']['cable_status'] == "CONNECTED" and node['interface_details']['interface_status'] == "UP":
