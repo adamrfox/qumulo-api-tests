@@ -11,7 +11,12 @@ import urllib3
 urllib3.disable_warnings()
 
 def usage():
-    print("Usage Goes Here!")
+    sys.stderr.write("Usage: qumulo_get_networks.py [-hD] [-c creds] [-t token] qumulo\n")
+    sys.stderr.write("-h | --help : Prints this usage\n")
+    sys.stderr.write("-D | --DEBUG : Debug mode. More verbose output\n")
+    sys.stderr.write("-c | -- creds= : Put credentials on the command line [user:password]\n")
+    sys.stderr.write("-t | --token : Put session token on the the command line\n")
+    sys.stderr.write("qumulo : Name or IP of a Qumulo node\n")
     exit(0)
 
 def dprint(message):
